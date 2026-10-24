@@ -1,1 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080817">
+  <meta name="description" content="Projeto pessoal de interface estilo PlayStation 2 para testar emuladores compatíveis no navegador.">
+  <title>MEU PS2 — Biblioteca</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Meu PS2 início">
+      <span class="orb" aria-hidden="true">✦</span>
+      <span><b>MEU <i>PS2</i></b><small>CLASSIC BROWSER</small></span>
+    </a>
+    <span class="status"><span class="dot"></span> INTERFACE INICIAL</span>
+  </header>
 
+  <main>
+    <section class="hero">
+      <p class="eyebrow">ERA PLAYSTATION 2 · PROJETO PESSOAL</p>
+      <h1>Sua biblioteca.<br><span>Sua nostalgia.</span></h1>
+      <p class="intro">Uma interface inspirada no visual do PS2. Esta versão é real como site, mas ainda não contém um emulador integrado nem jogos.</p>
+      <a class="primary" href="#biblioteca">ABRIR BIBLIOTECA <span>↘</span></a>
+    </section>
+
+    <section class="panel" id="biblioteca">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / BIBLIOTECA LOCAL</p><h2>Seus jogos</h2></div>
+        <span class="pill">NO SEU APARELHO</span>
+      </div>
+      <p class="muted">Selecione um arquivo de jogo que você tenha direito de usar. O site apenas mostra o arquivo selecionado; ainda não consegue executá-lo.</p>
+      <label class="file-button" for="game-file">＋ ESCOLHER ARQUIVO DE JOGO</label>
+      <input id="game-file" type="file" accept=".iso,.bin,.cue,.chd,.cso,.elf,.zip,.7z">
+      <div id="file-result" class="file-result" role="status">Nenhum arquivo selecionado.</div>
+      <p class="tiny">A escolha não envia o arquivo para um servidor. Arquivos grandes podem ser lentos ou indisponíveis no iPhone. Não carregue jogos que você não tem direito de usar.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / ÁREA DE EXECUÇÃO</p><h2>Emulador</h2></div>
+        <span class="pill warning">AINDA NÃO CONECTADO</span>
+      </div>
+      <div class="screen" id="screen">
+        <div class="screen-mark">PS<span>2</span></div>
+        <p id="screen-message">O emulador ainda não foi integrado.</p>
+        <small>Esta área não simula um jogo em execução.</small>
+      </div>
+      <div class="actions">
+        <button id="connect-info" class="secondary" type="button">COMO INTEGRAR O PLAY!.JS</button>
+        <button id="fullscreen" class="secondary" type="button">TELA CHEIA</button>
+      </div>
+      <div id="integration-info" class="notice" hidden>
+        <b>Integração pendente</b>
+        <p>Antes de conectar um emulador, confirme se o Play!.js oferece uma versão web incorporável, qual é sua licença, quais arquivos aceita e se funciona no Safari do iPhone. Não basta colocar um link ou um iframe: o emulador precisa expor uma forma real de carregar o jogo e receber comandos. Esta página ainda não envia ROMs ao Play!.js.</p>
+        <a href="https://playjs.purei.org/" target="_blank" rel="noopener noreferrer">Abrir site do Play!.js ↗</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">03 / CONTROLE</p><h2>Toque virtual</h2></div>
+        <span class="pill">DEMONSTRAÇÃO</span>
+      </div>
+      <p class="muted">Os botões abaixo respondem ao toque e mostram qual botão foi pressionado. Eles ainda não controlam um jogo, pois o emulador não está conectado.</p>
+      <div class="controller" aria-label="Controle virtual de demonstração">
+        <div class="dpad" aria-label="Direções">
+          <button data-key="up" class="up" aria-label="Cima">▲</button>
+          <button data-key="left" class="left" aria-label="Esquerda">◀</button>
+          <button data-key="right" class="right" aria-label="Direita">▶</button>
+          <button data-key="down" class="down" aria-label="Baixo">▼</button>
+        </div>
+        <div class="center-buttons">
+          <button data-key="select" class="small-btn">SELECT</button>
+          <button data-key="start" class="small-btn">START</button>
+        </div>
+        <div class="face-buttons" aria-label="Botões de ação">
+          <button data-key="triangle" class="triangle" aria-label="Triângulo">△</button>
+          <button data-key="circle" class="circle" aria-label="Círculo">○</button>
+          <button data-key="cross" class="cross" aria-label="X">×</button>
+          <button data-key="square" class="square" aria-label="Quadrado">□</button>
+        </div>
+      </div>
+      <div id="button-status" class="file-result" role="status">Nenhum botão pressionado.</div>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">04 / PRÓXIMOS PASSOS</p>
+      <h2>O que falta para jogar</h2>
+      <ol class="steps">
+        <li>Publicar esta interface no GitHub Pages.</li>
+        <li>Testar o emulador separadamente no Safari e verificar suporte real a toque.</li>
+        <li>Encontrar uma integração web permitida pelo projeto do emulador.</li>
+        <li>Conectar os botões virtuais à API de controle do emulador e testar um jogo próprio/legítimo.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer><span>MEU PS2</span><span>Projeto independente, não oficial nem afiliado à Sony.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
